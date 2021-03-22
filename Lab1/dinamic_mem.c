@@ -1,47 +1,49 @@
 #include "dinamic_mem.h"
 //get from user value of memory
-int *getMemoryONHeap()
+int *getMemoryONHeap(int nr_records)
 {
-
-     printf("Do you want to get memory on heap ? 1-yes 0-no\n");
-     int choice = 0;
-     scanf("%d", &choice);
-     if (choice == 1)
+     int *temp_ptr = (int *)malloc(nr_records * sizeof(int));
+     if (temp_ptr == NULL)
      {
-          int *mem_ptr = NULL;
-          mem_ptr = (int *)malloc(sizeof(int));
-          if (mem_ptr == NULL)
-          {
-               printf("Can't allocate memory!!!\n");
-               exit(1);
-          }
-
-          return mem_ptr;
+          printf("Can't alloc the memeory!!!\n");
+          exit(1);
      }
-     else if (choice == 0)
+     return temp_ptr;
+}
+// add records in arr
+bool addRecord(int nr_records, int *first_record)
+{
+     for (size_t i = 0; i < nr_records; i++)
      {
-          printf("Ok no memory provided!!!\n");
-          return NULL;
+          printf("Enter record nr. %d :> ", i + 1);
+          scanf("%d", &first_record[i]);
+     }
+     if (first_record[nr_records - 1] != 0)
+     {
+          return true;
      }
      else
      {
-          printf("It's not a valid option!!!\n");
-          return NULL;
+          return false;
      }
 }
+//print all records in arr
+bool printAllResults(int nr_records, int *first_record)
+{
+     for (size_t i = 0; i < nr_records; i++)
+     {
+          printf("Record %d is :> ", i + 1);
+          printf("%d\n", first_record[i]);
+          if (i == nr_records)
+          {
+               return true;
+          }
+     }
+}
+
 //free memory on heap
-bool freeMemoryOnHeap(int *ptr_whit_memory_adress)
+void freeMemoryOnHeap(int *ptr_whit_memory_adress)
 {
      free(ptr_whit_memory_adress);
-
-     ptr_whit_memory_adress == NULL;
-
-     if (ptr_whit_memory_adress == NULL)
-     {
-          return 1;
-     }
-     else
-     {
-          return 0;
-     }
+     ptr_whit_memory_adress = NULL;
 }

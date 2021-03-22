@@ -3,33 +3,33 @@
 
 int main()
 {
-     int *head_mem_aloc = NULL;
-     head_mem_aloc = getMemoryONHeap();
-
-     printf("Enter your variable here:>  ");
-     scanf("%d", head_mem_aloc);
-
-     printf("Your variable is %d", *head_mem_aloc);
-     bool choice = 0;
-     printf("\nDo you want to release the memory? : 1-yes 0-no \n");
-     scanf("%d", &choice);
-     if (choice == 1)
+     printf("How many recods do you want? : ");
+     int recods = 0;
+     printf("\n");
+     scanf("%d", &recods);
+     int *ptr;
+     //get memory for variables
+     ptr = getMemoryONHeap(recods);
+     //add recods
+     bool ceck = addRecord(recods, ptr);
+     if (ceck)
      {
-          //choice = freeMemoryOnHeap(head_mem_aloc);
-          free(head_mem_aloc);
-          if (choice)
-          {
-               printf("\nMemory released successfully!\n");
-          }
-          else
-          {
-               printf("\nCan't release memory!\n");
-          }
+          printf("\nThe records are added successfully!!\n\n");
      }
      else
      {
-          printf("\nWe leave memory without be relesed!\n");
+          printf("\nNo records were added!!\n");
+     }
+     ceck = printAllResults(recods, ptr);
+     if (ceck)
+     {
+          printf("\nThe records are displayed successfully!!\n\n");
+     }
+     else
+     {
+          printf("\nNo records were printed!!\n");
      }
 
+     freeMemoryOnHeap(ptr);
      return 0;
 }
