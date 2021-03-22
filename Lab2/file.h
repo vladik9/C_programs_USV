@@ -2,11 +2,14 @@
 #define _FILE_H_
 #include <stdio.h>
 
-typedef struct produs
+struct produs
 {
-     
+     int product_ID;
+     char *product_name;
+     char product_unit;
+};
 
-} PRODUS;
+typedef struct produs PRODUS;
 
 PRODUS *CitireFisier(char *numeFisier, int *nrProduse);
 
