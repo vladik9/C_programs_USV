@@ -11,11 +11,12 @@ int main()
 
      printf("Your variable is %d", *head_mem_aloc);
      bool choice = 0;
-     printf("\nDo you  to release the memory? : 0-no 1-yes\n");
+     printf("\nDo you want to release the memory? : 1-yes 0-no \n");
      scanf("%d", &choice);
      if (choice == 1)
      {
-          choice = freeMemoryOnHeap(head_mem_aloc);
+          //choice = freeMemoryOnHeap(head_mem_aloc);
+          free(head_mem_aloc);
           if (choice)
           {
                printf("\nMemory released successfully!\n");
