@@ -29,6 +29,6 @@ PRODUS *adaugaProdus(PRODUS *tab, int *nr_records);
 
 //Functie de salvare a produselor intr-un fisier.
 //Functia va returna TRUE daca produsele au fost salvate cu succes, respectiv FALS daca operatia a esuat.
-bool salvareProduseInFisier(char *numeFisier, PRODUS *tab, int n);
+bool salvareProduseInFisier(char *numeFisier, PRODUS *tab, int nr_records, char *mode);
 
 #endif // !_FILE_H_

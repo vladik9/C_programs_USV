@@ -11,7 +11,7 @@ PRODUS *CitireFisier(char *numeFisier, int *nrProduse)
 
      fscanf(openFile, "%d", nrProduse);
      temp_ptr = (PRODUS *)malloc(*nrProduse * sizeof(PRODUS));
-     printf("\nThe number of products are %d\n\n", *nrProduse);
+     printf("\nThe current number of products are >: %d\n\n", *nrProduse);
 
      for (size_t i = 0; i < *nrProduse; i++)
      {
@@ -43,7 +43,7 @@ PRODUS *CitireFisier(char *numeFisier, int *nrProduse)
 //print all records to screen
 void afisareProduse(PRODUS *tab, int *nr_products)
 {
-     printf("Product ID: \tproduct name: \tmesuare unit:\n\n");
+     printf("Product ID: \tproduct name: \tmesuare unit:\n");
      for (size_t i = 0; i < *nr_products; i++)
      {
           printf("|%d| \t\t%s \t%s\n",
@@ -89,6 +89,30 @@ PRODUS *adaugaProdus(PRODUS *tab, int *nr_records)
      temp_ptr[position].product_unit = (char *)malloc(strlen(temp_product_mesure_unit) + 1);
      strcpy(temp_ptr[position].product_unit, temp_product_mesure_unit);
 
-     printf("\nThe new record are added whit id: %d\n", *nr_records);
+     printf("\nThe new record are added whit id >: %d\n", *nr_records);
      return temp_ptr;
+}
+
+//save data to the file or append
+bool salvareProduseInFisier(char *numeFisier, PRODUS *tab, int nr_records, char *mode)
+{
+     FILE *ptr_file;
+     ptr_file = fopen(numeFisier, mode);
+     if (ptr_file == NULL)
+     {
+          printf("Can't open file %s\n", numeFisier);
+          return false;
+     }
+     printf("Nr of records are %d\n", nr_records);
+
+     fprintf(ptr_file, "%d\n", tab[nr_records].product_ID);
+     for (size_t i = 0; i < nr_records; i++)
+     {
+          fprintf(ptr_file, "%d %s, %s\n",
+                  tab[i].product_ID,
+                  tab[i].product_name,
+                  tab[i].product_unit);
+     }
+     fclose(ptr_file);
+     return true;
 }

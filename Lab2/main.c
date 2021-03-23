@@ -6,6 +6,7 @@ int main()
      int nr_products_in_file = 0;
      bool file_flag = false;
      int user_choice = 0;
+     char filename[25];
      do
      {
           //sleep(2); // sleep for 3 seconds
@@ -26,7 +27,6 @@ int main()
           case 1:
                /* code */
                printf("Enter the name of file to be opened: ");
-               char filename[25];
                scanf("%s", filename);
                ptr_produs = CitireFisier(filename, &nr_products_in_file);
                file_flag = true;
@@ -36,7 +36,7 @@ int main()
                if (!file_flag)
                {
                     printf("Enter the name of file to be opened: ");
-                    char filename[25];
+
                     scanf("%s", filename);
                     ptr_produs = CitireFisier(filename, &nr_products_in_file);
                     file_flag = true;
@@ -49,7 +49,7 @@ int main()
                if (!file_flag)
                {
                     printf("Enter the name of file to be opened: ");
-                    char filename[25];
+
                     scanf("%s", filename);
                     ptr_produs = CitireFisier(filename, &nr_products_in_file);
                     file_flag = true;
@@ -91,7 +91,7 @@ int main()
                if (!file_flag)
                {
                     printf("Enter the name of file to be opened: ");
-                    char filename[25];
+
                     scanf("%s", filename);
                     ptr_produs = CitireFisier(filename, &nr_products_in_file);
                     file_flag = true;
@@ -100,7 +100,50 @@ int main()
                break;
           case 5:
                /* code */
-               break;
+               if (!file_flag)
+               {
+                    printf("Enter the name of file to be opened: ");
+
+                    scanf("%s", filename);
+                    ptr_produs = CitireFisier(filename, &nr_products_in_file);
+                    file_flag = true;
+               }
+
+               printf("Do you want to create an new file with this product list?\n");
+               printf("Or add the new intem to the existing file?\n");
+               printf("1 for new-file 2 for existing-file\n");
+               scanf("%d", &user_choice);
+               bool option_result = false;
+               if (user_choice == 1)
+               {
+                    printf("You chose new file option!\n");
+                    printf("Enter the name for the new file: ");
+                    char name[25];
+                    scanf("%s", &name);
+                    char mode = 'w';
+                    option_result = salvareProduseInFisier(name, ptr_produs, nr_products_in_file, &mode);
+               }
+               else if (user_choice == 2)
+               {
+                    char mode = 'a';
+                    printf("You chose old file name %s\n", filename);
+                    option_result = salvareProduseInFisier(filename, ptr_produs, nr_products_in_file, &mode);
+               }
+               else
+               {
+                    printf("You chose an invalid option!\n");
+               }
+
+               //user bool for successe or not
+               if (option_result)
+               {
+                    printf("All changes maded successfully!\n");
+               }
+               else
+               {
+                    printf("Failed to make changes!\n");
+               }
+
           case 6:
                /* code */
                exit(0); //exit code successe
