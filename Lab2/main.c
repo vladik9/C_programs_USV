@@ -146,7 +146,7 @@ int main()
 
           case 6:
                /* code */
-               exit(0); //exit code successe
+               exit(0); //exit code success
                break;
 
           default:
