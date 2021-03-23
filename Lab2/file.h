@@ -18,14 +18,14 @@ PRODUS *ptr_produs; //adress of firsth produs
 
 PRODUS *CitireFisier(char *numeFisier, int *nrProduse);
 
-char *afisareProduse(PRODUS *tab, int n);
+void afisareProduse(PRODUS *tab, int *nr_products);
 
 //Functie de cautarea a unui produs dupa cod (codX).
 //Functia va returna pozitia produsului gasit din tabelul de produse sau valoarea -1 daca produsul nu a fost gasit
 int cautaProdus(PRODUS *tab, int n, int codX);
 
 //adaugare produs in tabloul de produse - se va realoca spatiu pentru noul produs (transmis in functie printr-un pointer la struct produs)
-PRODUS *adaugaProdus(PRODUS *tab, int *n, PRODUS *x);
+PRODUS *adaugaProdus(PRODUS *tab, int *nr_records);
 
 //Functie de salvare a produselor intr-un fisier.
 //Functia va returna TRUE daca produsele au fost salvate cu succes, respectiv FALS daca operatia a esuat.
