@@ -1,6 +1,7 @@
 #ifndef _FILE_H_
 #define _FILE_H_
 #include <stdio.h>
+#include <stdbool.h>
 
 struct produs
 {
@@ -10,6 +11,8 @@ struct produs
 };
 
 typedef struct produs PRODUS;
+
+PRODUS *ptr_produs; //adress of firsth produs
 
 PRODUS *CitireFisier(char *numeFisier, int *nrProduse);
 
