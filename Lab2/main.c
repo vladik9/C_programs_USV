@@ -1,11 +1,16 @@
 #include "file.h"
+#include "file.c"
 
 int main()
 {
      int nr_products_in_file;
+     bool file_flag = false;
      int user_choice = 0;
      do
      {
+          sleep(2); // sleep for 3 seconds
+          system("clear");
+          printf("################################\n");
           printf("1 - Read from a file.\n");
           printf("2 - Print all products.\n");
           printf("3 - Search an produs via ID.\n");
@@ -14,6 +19,7 @@ int main()
           printf("6 - Exit from this program.\n");
           printf("Your option here:> ");
           scanf("%d", &user_choice);
+          printf("################################\n\n");
 
           switch (user_choice)
           {

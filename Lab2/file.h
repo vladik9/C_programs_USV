@@ -2,12 +2,14 @@
 #define _FILE_H_
 #include <stdio.h>
 #include <stdbool.h>
-
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
 struct produs
 {
      int product_ID;
      char *product_name;
-     char product_unit;
+     char *product_unit;
 };
 
 typedef struct produs PRODUS;
