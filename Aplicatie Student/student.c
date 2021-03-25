@@ -74,6 +74,7 @@ void setProgram(STUDENT s, short int codprogram)
 bool equalsStud(STUDENT s, STUDENT t)
 {
      assert(s != NULL && t != NULL);
+     //fix this error!!!
      return strcmp(s->nume, t->nume) == 0 && strcmp(s->prenume, t->prenume) == 0 && s->medie = t->medie && s->codprogram == t->codprogram;
 }
 char *toString(STUDENT s, char *zona)
