@@ -5,9 +5,10 @@
 
 int main()
 {
-     int check_condiotonin = 0;
+     int check_condition = 0;
      LISTA my_list;
      ELEMENT my_element;
+     FILE *ptr_file;
      do
 
      {
@@ -29,15 +30,15 @@ int main()
           printf("13 - informatii despre autor.\n");
           printf("14 - terminare program.\n");
           printf("Optiunea ta aici :> ");
-          scanf("%d", &check_condiotonin);
+          scanf("%d", &check_condition);
           printf("################################\n");
 
-          switch (check_condiotonin)
+          switch (check_condition)
           {
           case 1:
 
                my_list = newl();
-               printf("Ai ales optiunea %d", check_condiotonin);
+               printf("Ai ales optiunea %d", check_condition);
                int num = 0;
                printf("\nIntroduce numarul dorit: ");
                scanf("%d", &num);
@@ -47,17 +48,10 @@ int main()
                break;
           case 2:
 
-               FILE *ptr_file = NULL;
                ptr_file = fopen("in.txt", "r");
                if (ptr_file == NULL)
                {
                     printf("Error opening file in.txt\n");
-               }
-               int c = getc(ptr_file);
-               while (c != EOF)
-               {
-                    //     my_list= putchar(c);
-                    //      c = getc(f);
                }
 
                break;
