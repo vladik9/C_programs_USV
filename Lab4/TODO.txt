@@ -1,0 +1,25 @@
+Tema de realizat in timpul laboratorului:
+- Crearea in fisierul main.c un meniu cu urmatoarele optiuni de meniu:
+1 - citeşte un număr întreg şi-l introduce la inceputul listei
+2 - citeşte un fişier text ce conţine numere întregi separate prin spaţii şi le introduce în lista (la sfarsitul listei)
+3 - afişeaza lista
+4 - insereaza un element in lista dupa un element cu informatia data
+5 - caută un element în lista
+6 - elimină primul element din lista
+7 - elimină ultimul element din lista
+8 - elimina din lista elementul cu informatia x
+9 - salvează lista într-un fişier text
+10 - din lista L se formează două noi liste, una ce conţine elementele negative şi una
+conţinând elementele pozitive
+11 - afişeaza lista conţinând elementele pozitive
+12 - afişează lista conţinând elementele negative
+13 - informaţii despre autor
+14 - terminare program
+
+in.txt
+---------
+Azi
+sustinem 
+examen
+la
+PCLP2
