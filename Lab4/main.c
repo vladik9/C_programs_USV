@@ -48,16 +48,17 @@ int main()
           case 2:
 
                FILE *ptr_file = NULL;
-               ptr_file = fopen("in.txt", "r");
+               ptr_file = fopen("num.txt", "r");
                if (ptr_file == NULL)
                {
-                    printf("Error opening file in.txt\n");
+                    printf("Error opening file num.txt\n");
                }
-               int c = getc(ptr_file);
-               while (c != EOF)
+               int nume_file = 0;
+               //int c = getc(ptr_file);
+               while (ptr_file != EOF)
                {
-                    //     my_list= putchar(c);
-                    //      c = getc(f);
+                    fscanf(ptr_file, "%d", &nume_file);
+                    printf("%d", nume_file);
                }
 
                break;
