@@ -23,7 +23,11 @@ DATA ultimul(LISTA l);
 int nrElemente(LISTA l);
 bool isEmptyl(LISTA l);
 bool isFull(LISTA l);
-char *toStringl(LISTA l,char *s);
+char *toStringl(LISTA l, char *s);
 // ...
 void destroyl(LISTA l);
+
+//print element one
+void print_element(LISTA l);
+
 #endif
