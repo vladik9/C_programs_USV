@@ -4,13 +4,21 @@ int main()
 {
 
      FILE *ptr_file;
-
+     int conut = 0;
      ptr_file = fopen("num.txt", "r");
+
      if (ptr_file == NULL)
      {
           printf("Cant opening file\n");
      }
-     int ch = getc(ptr_file);
-     printf("End od file have value: %d\n", ch);
+     for (size_t i = 0; i != feof(ptr_file); i++)
+     {
+
+          conut++;
+     }
+
+     printf("Nr of elements are: %d\n", conut);
+
+     fclose(ptr_file);
      return 0;
 }
