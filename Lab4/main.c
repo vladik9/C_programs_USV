@@ -51,13 +51,13 @@ int main()
                ptr_file = fopen("in.txt", "r");
                if (ptr_file == NULL)
                {
-                    printf("Error opening file in.txt\n");
+                    printf("Error opening file num.txt\n");
                }
-
-               break;
-          case 3:
-               break;
-          case 4:
+               int nume_file = 0;
+               //int c = getc(ptr_file);
+               while (ptr_file != EOF)
+               {
+               }
                break;
           case 5:
                break;
@@ -82,8 +82,7 @@ int main()
                break;
           }
 
-          scanf("%d", &check_condiotonin);
-     } while (check_condiotonin != 14);
+     } while (check_condition != 14);
 
      return 0;
 }
