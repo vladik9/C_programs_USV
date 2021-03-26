@@ -156,6 +156,8 @@ bool isFull(LISTA l)
 {
     return FALS;
 }
+
+//to string
 char *toStringl(LISTA l, char *s)
 {
     char buf[100];

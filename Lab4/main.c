@@ -9,10 +9,12 @@ int main()
      LISTA my_list;
      ELEMENT my_element;
      FILE *ptr_file;
+     char *list = NULL;
+     bool flag_inserare = 0;
      do
 
      {
-          printf("################################\n");
+          printf("\n################################\n");
           printf("Bine ai venit in programul meu!!!\n");
 
           printf("1 - citeşte un număr întreg şi - l introduce la inceputul listei.\n");
@@ -31,7 +33,7 @@ int main()
           printf("14 - terminare program.\n");
           printf("Optiunea ta aici :> ");
           scanf("%d", &check_condition);
-          printf("################################\n");
+          printf("\n################################\n");
 
           switch (check_condition)
           {
@@ -40,13 +42,22 @@ int main()
                my_list = newl();
                printf("Ai ales optiunea %d", check_condition);
                int num = 0;
+
                printf("\nIntroduce numarul dorit: ");
-               scanf("%d", &num);
-               my_list = ins_in_fata(my_list, num);
-               print_element(my_list);
+               if (flag_inserare == 0)
+               {
+                    scanf("%d", &num);
+                    my_list = ins_in_fata(my_list, num);
+                    flag_inserare = 1;
+               }
+               else if (flag_inserare == 1)
+               {
+                    scanf("%d", &num);
+                    my_list = ins_la_urma(my_list, num);
+               }
 
                break;
-          case 2:
+          case 2: // to solve this program
 
                ptr_file = fopen("in.txt", "r");
                if (ptr_file == NULL)
@@ -54,10 +65,13 @@ int main()
                     printf("Error opening file num.txt\n");
                }
                int nume_file = 0;
-               //int c = getc(ptr_file);
-               while (ptr_file != EOF)
-               {
-               }
+               break;
+          case 3:
+               list = (char *)malloc(my_list->nr * sizeof(char));
+               list = toStringl(my_list, list);
+               printf("%s\n", list);
+               break;
+          case 4:
                break;
           case 5:
                break;
