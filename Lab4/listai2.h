@@ -30,4 +30,6 @@ void destroyl(LISTA l);
 //user defined function
 LISTA delete_X_element(LISTA l, DATA x);
 bool saveListToFile(LISTA l);
+bool creareListeNoiPozitivaNegativa(LISTA initiala, LISTA pozitiva, LISTA negativa);
+void userInfo();
 #endif

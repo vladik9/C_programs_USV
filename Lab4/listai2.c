@@ -294,6 +294,31 @@ bool saveListToFile(LISTA l)
     return true;
 }
 
-bool creareListeNoiPozitivaNegativa(LISTA initiala, LISTA pozitiva, LISTA negativa)
+bool creareListeNoiPozitivaNegativa(LISTA l_initiala, LISTA pozitiva, LISTA negativa)
 {
+    assert(l_initiala != NULL); // check if the list have memory allocated
+
+    if (!isEmptyl(l_initiala)) //check if the list is empty (no more elements)
+    {
+        ELEMENT p;                                          //temp ptr
+        for (p = l_initiala->primul; p != NULL; p = p->urm) // a loop to search the element in the list
+        {
+            if (p->info > 0) // if the element matches
+                pozitiva = ins_in_fata(pozitiva, p->info);
+        }
+        for (p = l_initiala->primul; p != NULL; p = p->urm) // a loop to search the element in the list
+        {
+            if (p->info < 0) // if the element matches
+                negativa = ins_in_fata(negativa, p->info);
+        }
+        return true;
+    }
+    return false; // list is empty
+}
+void userInfo()
+{
+    printf("\n###########################\n");
+    printf(" Utilizatorul si dezvoltatorul\n acestui program final este Cornici Vlad\n ");
+    printf("Pasionat de programare si simplu self-learn-student!\n");
+    printf("###########################\n");
 }
