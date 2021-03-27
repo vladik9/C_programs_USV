@@ -69,7 +69,9 @@ LISTA ins_in_fata(LISTA l, DATA x) // Data is an alias for a int type
         if (l->ultimul == NULL) //check if is only one record
             l->ultimul = w;     // if true set the last element the single element in list
         l->nr++;                // increment the number of elements in list from 0 to 1
+        printf("\nElementul %d a fost adaugat cu succes in lista!\n ", x);
     }
+
     return l; //return ptr to list
 }
 
@@ -107,6 +109,7 @@ LISTA sterge_ultimul(LISTA l) // delete the last element int the list
     {                                  //este unicul element
         free(l->primul);               //if true the free first the single element in list
         l->primul = l->ultimul = NULL; // and NULL the ptr pointing to that memory location
+        printf("\nElementul a fost sters cu succes.\n");
     }
     else // else we hava more that one record
     {
@@ -117,6 +120,7 @@ LISTA sterge_ultimul(LISTA l) // delete the last element int the list
         free(l->ultimul); // delete the last element memory location
         p->urm = NULL;    // NULL the conection to the last element
         l->ultimul = p;   //update the postion in list to be able to use the list ahead
+        printf("\nElementul a fost sters cu succes.\n");
     }
     return l; //return a ptr whit list
 }
@@ -133,6 +137,7 @@ LISTA sterge_primul(LISTA l) // delete the first element in list
         l->primul = p;              // update the info for list whit new first element
         if (l->primul == NULL)      //check if the list is empty (no more elements)
             l->primul = NULL;       //if true NULL the pointer
+        printf("\nElementul a fost sters cu succes.\n");
     }
     return l; //return the list ptr
 }
@@ -150,7 +155,7 @@ ELEMENT cauta(LISTA l, DATA k) // search the data in the list
                 return p;     //return it
         }
     }
-    return NULL; // else no one matche return NULL
+    return NULL; //NULL; // else no one matche return NULL
 }
 
 DATA primul(LISTA l) //return a int whit num of first elements or ABSENT if list empty
@@ -220,4 +225,75 @@ void destroyl(LISTA l) // destroy list
     }
 }
 
-// ... for new function
+// ... for new function added by me
+LISTA delete_X_element(LISTA l, DATA x)
+{
+    assert(l != NULL); // check_condition if list have allocated memory
+
+    if (isEmptyl(l))
+    {
+        return l; // return list if is empty
+    }
+    if (l->primul->info == x)
+    {
+        l = sterge_primul(l);
+    }
+    else if (l->ultimul->info == x)
+    {
+        l = sterge_ultimul(l);
+    }
+    else
+    {
+        ELEMENT p, anteriorX, posteriorX;             //temp ptr
+        for (p = l->primul; p->info != x; p = p->urm) // a loop to search the element in the list
+        {
+            anteriorX = p->urm;
+            for (p = l->primul; p != NULL; p = p->urm)
+            {
+                if (p->info == x)
+                { // if the element matches
+                    free(p);
+                    posteriorX = p->urm; // get the addres of the next element
+
+                    posteriorX = anteriorX;
+                    printf("\nElementul a fost sters cu succes.\n");
+                }
+            }
+        }
+    }
+
+    return l;
+}
+
+bool saveListToFile(LISTA l)
+{
+
+    FILE *ptr;
+    ELEMENT p;
+
+    assert(l != NULL); // check_condition if list have allocated memory
+
+    if (isEmptyl(l))
+    {
+        return false; // return list if is empty
+    }
+    printf("Enter name for new file: ");
+    char filename[25];
+    scanf("%s", filename);
+    ptr = fopen(filename, "w");
+    if (ptr == NULL)
+    {
+        printf("Can't create new file %s", filename);
+    }
+
+    for (p = l->primul; p != NULL; p = p->urm) // a loop to search the element in the list
+    {
+        fprintf(ptr, "%d ", p->info);
+    }
+    fclose(ptr);
+    return true;
+}
+
+bool creareListeNoiPozitivaNegativa(LISTA initiala, LISTA pozitiva, LISTA negativa)
+{
+}

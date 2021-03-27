@@ -27,7 +27,7 @@ char *toStringl(LISTA l, char *s);
 // ...
 void destroyl(LISTA l);
 
-//print element one
-void print_element(LISTA l);
-
+//user defined function
+LISTA delete_X_element(LISTA l, DATA x);
+bool saveListToFile(LISTA l);
 #endif

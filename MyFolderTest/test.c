@@ -1,24 +1,32 @@
 #include <stdio.h>
+struct element
+{
+     int info;
+     struct element *urm;
+};
+//###     ###
+
+//redefintion of element struct in ELEMENT
+typedef struct element Element;
+
+//struct whit list of elements called list
+//### lista ###
+typedef struct element *ELEMENT;
+typedef struct lista *LISTA;
+struct lista
+{
+     int nr;
+     ELEMENT primul;
+     ELEMENT ultimul;
+};
 
 int main()
 {
 
-     FILE *ptr_file;
-     int conut = 0;
-     ptr_file = fopen("num.txt", "r");
+     ELEMENT ptr;
+     LISTA l;
+     l->primul->info;
+     ptr->info;
 
-     if (ptr_file == NULL)
-     {
-          printf("Cant opening file\n");
-     }
-     for (size_t i = 0; i != feof(ptr_file); i++)
-     {
-
-          conut++;
-     }
-
-     printf("Nr of elements are: %d\n", conut);
-
-     fclose(ptr_file);
      return 0;
 }
