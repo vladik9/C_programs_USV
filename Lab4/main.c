@@ -2,6 +2,7 @@
 #include "data.h"
 #include "listai2.h"
 #include "listai2.c"
+#include <unistd.h> // for sleap
 
 int main()
 {
@@ -19,24 +20,41 @@ int main()
      bool list_devided_condion = false;
      do
      {
+          sleep(2); // sleep for 3 seconds
+          system("clear");
           printf("\n################################\n");
           printf("Bine ai venit in programul meu!!!\n");
-
+          sleep(1);
           printf("1 - citeşte un număr întreg si - l introduce la inceputul listei.\n");
+          sleep(1);
           printf("?2 - citeşte un fişier text ce contine numere intregi separate prin spatii\nsi le introduce in lista (la sfarsitul listei)\n");
+          sleep(1);
           printf("3 - afişeaza lista.\n");
+          sleep(1);
           printf("?4 |adauga functie| - insereaza un element  in lista dupa un element cu informatia data.\n");
+          sleep(1);
           printf("5 - cauta un element în lista.\n");
+          sleep(1);
           printf("6 - elimina primul element din lista.\n");
+          sleep(1);
           printf("7 - elimină ultimul element din lista.\n");
+          sleep(1);
           printf("?8 - elimina din lista elementul cu informatia x.\n");
+          sleep(1);
           printf("9 - salveaza lista într-un fişier text.\n");
+          sleep(1);
           printf("10 - din lista L se formează doua noi liste, una ce contine elementele\nnegative şi una continând elementele pozitive.\n");
+          sleep(1);
           printf("11 - afişeaza lista continând elementele pozitive.\n");
+          sleep(1);
           printf("12 - afiseaza lista continând elementele negative.\n");
+          sleep(1);
           printf("13 - informatii despre autor.\n");
+          sleep(1);
           printf("14 - terminare program.\n");
+          sleep(1);
           printf("Optiunea ta aici :> ");
+          sleep(1);
           scanf("%d", &check_condition);
           printf("\n################################\n");
 
