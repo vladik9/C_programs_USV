@@ -2,7 +2,8 @@
 #include "data.h"
 #include "listai2.h"
 #include "listai2.c"
-#include <unistd.h> // for sleap
+//#include <unistd.h>  // for sleap linux
+#include <Windows.h> // for sleap windows
 
 int main()
 {
@@ -25,29 +26,29 @@ int main()
           printf("\n################################\n");
           printf("Bine ai venit in programul meu!!!\n");
           sleep(1);
-          printf("1 - citeşte un număr întreg si - l introduce la inceputul listei.\n");
+          printf("1 - citeste un numar intreg si - l introduce la inceputul listei.\n");
           sleep(1);
-          printf("?2 - citeşte un fişier text ce contine numere intregi separate prin spatii\nsi le introduce in lista (la sfarsitul listei)\n");
+          printf("?2 - citeste un fisier text ce contine numere intregi separate prin spatii\nsi le introduce in lista (la sfarsitul listei)\n");
           sleep(1);
-          printf("3 - afişeaza lista.\n");
+          printf("3 - afiseaza lista.\n");
           sleep(1);
           printf("?4 |adauga functie| - insereaza un element  in lista dupa un element cu informatia data.\n");
           sleep(1);
-          printf("5 - cauta un element în lista.\n");
+          printf("5 - cauta un element in lista.\n");
           sleep(1);
           printf("6 - elimina primul element din lista.\n");
           sleep(1);
-          printf("7 - elimină ultimul element din lista.\n");
+          printf("7 - elimina ultimul element din lista.\n");
           sleep(1);
           printf("?8 - elimina din lista elementul cu informatia x.\n");
           sleep(1);
-          printf("9 - salveaza lista într-un fişier text.\n");
+          printf("9 - salveaza lista intr-un fisier text.\n");
           sleep(1);
-          printf("10 - din lista L se formează doua noi liste, una ce contine elementele\nnegative şi una continând elementele pozitive.\n");
+          printf("10 - din lista L se formeaza doua noi liste, una ce contine elementele\nnegative si una continând elementele pozitive.\n");
           sleep(1);
-          printf("11 - afişeaza lista continând elementele pozitive.\n");
+          printf("11 - afiseaza lista continand elementele pozitive.\n");
           sleep(1);
-          printf("12 - afiseaza lista continând elementele negative.\n");
+          printf("12 - afiseaza lista continand elementele negative.\n");
           sleep(1);
           printf("13 - informatii despre autor.\n");
           sleep(1);
