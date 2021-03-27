@@ -40,7 +40,6 @@ int main()
           case 1:
 
                my_list = newl();
-               printf("Ai ales optiunea %d", check_condition);
                int num = 0;
 
                printf("\nIntroduce numarul dorit: ");

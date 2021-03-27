@@ -19,7 +19,8 @@ typedef int DATA;
 // functia care converteste intr-un sir informatia
 // structurata de tip DATA
 //
-static char *toStringDATA(DATA x, char *zona){
+static char *toStringDATA(DATA x, char *zona)
+{
     sprintf(zona, FORMAT, x);
     return zona;
 }
