@@ -33,4 +33,5 @@ LISTA importListFromFIle(LISTA l, char filename[25]);
 bool saveListToFile(LISTA l);
 bool creareListeNoiPozitivaNegativa(LISTA initiala, LISTA pozitiva, LISTA negativa);
 void userInfo();
+LISTA addElementAfrterX(LISTA l, DATA informatie, DATA x); // imported from one coleg
 #endif

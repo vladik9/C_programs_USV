@@ -13,7 +13,7 @@ int main()
      FILE *ptr_file;
      char *string_whit_elements;
      bool flag_inserare = 0;
-     int user_element = 0;
+     int user_element = 0, x_element = 0;
      my_list = newl();          //list initialization
      lista_pozitiva = newl();   // positiv list initialization
      lista_negativa = newl();   //negativ list initialization
@@ -84,7 +84,11 @@ int main()
                printf("%s\n", string_whit_elements);
                break;
           case 4:
-
+               printf("\nIntrodu informatia elementului dupa care doresti sa faci adaugarea: ");
+               scanf(FORMAT, &user_element);
+               printf("\nIntrodu informatia pe care doresti sa o introduci dupa elementul cautat: ");
+               scanf(FORMAT, &x_element);
+               my_list = addElementAfrterX(my_list, user_element, x_element);
                break;
           case 5:
                printf("Introduceti numarul pe care doriti sa-l cautati in lista! : ");
@@ -109,6 +113,12 @@ int main()
           case 8:
                printf("Introduceti numarul x pentru a fi sters: ");
                scanf("%d", &user_element);
+               my_element = cauta(my_list, user_element);
+               if (my_element == 0)
+               {
+                    printf("Elementul %d not found!!!\n", user_element);
+               }
+
                my_list = delete_X_element(my_list, user_element);
                break;
           case 9:
@@ -148,6 +158,8 @@ int main()
                break;
           case 14:
                destroyl(my_list);
+               destroyl(lista_pozitiva);
+               destroyl(lista_negativa);
                break;
           default:
                printf("Ai introdus o optiune invalida.\n");

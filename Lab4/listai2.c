@@ -243,23 +243,30 @@ LISTA delete_X_element(LISTA l, DATA x)
         l = sterge_ultimul(l);
     }
     else
-    {
-        ELEMENT p, anteriorX, posteriorX;             //temp ptr
-        for (p = l->primul; p->info != x; p = p->urm) // a loop to search the element in the list
+    { // to solve problem
+        ELEMENT p;
+        int *anteriorX, *nextElement;
+        p = cauta(l, x);
+        // nextElement = p->urm; // next elemnt ins list
+        for (p = l->primul; p->info != x; p = p->urm)
         {
-            anteriorX = p->urm;
-            for (p = l->primul; p != NULL; p = p->urm)
-            {
-                if (p->info == x)
-                { // if the element matches
-                    free(p);
-                    posteriorX = p->urm; // get the addres of the next element
-
-                    posteriorX = anteriorX;
-                    printf("\nElementul a fost sters cu succes.\n");
-                }
-            }
         }
+
+        // for (p = l->primul; p->info != x; p = p->urm) // a loop to search the element in the list
+        // {
+        //     anteriorX = p->urm;
+        //     for (p = l->primul; p != NULL; p = p->urm)
+        //     {
+        //         if (p->info == x)
+        //         { // if the element matches
+        //             free(p);
+        //             posteriorX = p->urm; // get the addres of the next element
+
+        //             posteriorX = anteriorX;
+        //             printf("\nElementul a fost sters cu succes.\n");
+        //         }
+        //     }
+        // }
     }
 
     return l;
@@ -373,4 +380,51 @@ void userInfo()
     printf(" Utilizatorul si dezvoltatorul\n acestui program final este Cornici Vlad\n ");
     printf("Pasionat de programare si simplu self-learn-student!\n");
     printf("###########################\n");
+}
+
+// imported from class room
+LISTA addElementAfrterX(LISTA l, DATA informatie, DATA x)
+{
+    if (isEmptyl(l) == 1)
+    {
+        printf("\nLista este goala deci nu se poate face inserarea dupa elementul dorit!\n");
+        return l;
+    }
+
+    ELEMENT e = cauta(l, informatie);
+
+    if (e == NULL)
+    {
+        printf("\nElementul cautat nu exista in lista!\n");
+        return l;
+    }
+
+    ELEMENT deAdaugat = creareElement(x, NULL);
+
+    if (e == l->primul)
+    {
+        if (l->primul == l->ultimul)
+        {
+            e->urm = deAdaugat;
+            l->nr++;
+            l->ultimul = deAdaugat;
+            return l;
+        }
+
+        else
+        {
+            deAdaugat->urm = e->urm;
+            e->urm = deAdaugat;
+            l->nr++;
+            return l;
+        }
+    }
+
+    if (e == l->ultimul)
+    {
+        e->urm = deAdaugat;
+        l->nr++;
+        l->ultimul = deAdaugat;
+        return l;
+    }
 }
