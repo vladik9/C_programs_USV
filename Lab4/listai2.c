@@ -265,8 +265,24 @@ LISTA delete_X_element(LISTA l, DATA x)
     return l;
 }
 
-bool importListFromFIle(char filename[], int nr_of_records)
+bool importListFromFIle(char filename[25])
 {
+    char buffer[256];
+    char num[50];
+    char space[3];
+    FILE *ptr_file;
+    ptr_file = fopen(filename, "r");
+    if (ptr_file == NULL)
+    {
+        printf("Can't open file %s\n", filename);
+    }
+    
+    fgets(buffer, 255, ptr_file);
+
+    for (size_t i = 0; i < 10; i++)
+    {
+        printf("El: %s\n", buffer[i]);
+    }
 }
 
 bool saveListToFile(LISTA l)

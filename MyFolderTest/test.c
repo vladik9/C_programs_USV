@@ -1,32 +1,21 @@
 #include <stdio.h>
-struct element
-{
-     int info;
-     struct element *urm;
-};
-//###     ###
-
-//redefintion of element struct in ELEMENT
-typedef struct element Element;
-
-//struct whit list of elements called list
-//### lista ###
-typedef struct element *ELEMENT;
-typedef struct lista *LISTA;
-struct lista
-{
-     int nr;
-     ELEMENT primul;
-     ELEMENT ultimul;
-};
-
+#include <stdlib.h>
+#include <string.h>
 int main()
 {
+     char buff_of_int[50];
+     FILE *ptr_file = fopen("num.txt", "r");
+     if (ptr_file == NULL)
+     {
+          printf("No such file\n");
+     }
 
-     ELEMENT ptr;
-     LISTA l;
-     l->primul->info;
-     ptr->info;
+     int size = 0;
 
+     fscanf(ptr_file, "%[^\n]", buff_of_int);
+     int len = strlen(buff_of_int);
+
+     printf("elemets are %s\n", buff_of_int);
+     printf("nr elements are %d", len);
      return 0;
 }

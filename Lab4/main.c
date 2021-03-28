@@ -18,14 +18,15 @@ int main()
      lista_pozitiva = newl();   // positiv list initialization
      lista_negativa = newl();   //negativ list initialization
      bool save_to_file = false; // save file check condition
-     bool importi_file = false; // import file check condition
+     bool import_file = false;  // import file check condition
      bool list_devided_condion = false;
+     char filename[25] = "\0"; //file name to open
 
      do
      {
 
-          sleep(2);        // sleep for 3 seconds
-          system("clear"); // for linux only
+          sleep(2); // sleep for 3 seconds
+          //system("clear"); // for linux only
           //system("cls"); //for windows only
           printf("\n################################\n");
           printf("Bine ai venit in programul meu!!!\n");
@@ -72,25 +73,12 @@ int main()
 
                break;
           case 2: // to solve this program
-               printf("Cate elemente doresti sa importi in fisier?\n");
-               printf("Introdu 1 pentru un numar exact sau 2 pentru tot fisierul\n");
-               scanf("%d", &user_element);
-               if (user_element == 1)
-               {
-                    printf("Introdu numarul de elemente pe care doresti sa le inserezi: ");
-                    scanf("%d", &user_element);
-               }
-               else if (user_element == 2)
-               {
-                    printf("Ai solictat includerea tuturor valorilor!\n");
-               }
-               else
-               {
-                    printf("Ai introdus o valoare incorecta.\n");
-               }
-
+               printf("Enter the file name: ");
+               scanf("%s", &filename);
+               import_file = importListFromFIle(filename);
                break;
           case 3:
+
                string_whit_elements = toStringl(my_list, string_whit_elements);
                printf("%s\n", string_whit_elements);
                break;
