@@ -29,6 +29,7 @@ void destroyl(LISTA l);
 
 //user defined function
 LISTA delete_X_element(LISTA l, DATA x);
+bool importListFromFIle(char filename[], int nr_of_records);
 bool saveListToFile(LISTA l);
 bool creareListeNoiPozitivaNegativa(LISTA initiala, LISTA pozitiva, LISTA negativa);
 void userInfo();

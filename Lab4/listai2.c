@@ -265,6 +265,10 @@ LISTA delete_X_element(LISTA l, DATA x)
     return l;
 }
 
+bool importListFromFIle(char filename[], int nr_of_records)
+{
+}
+
 bool saveListToFile(LISTA l)
 {
 
@@ -303,7 +307,7 @@ bool creareListeNoiPozitivaNegativa(LISTA l_initiala, LISTA pozitiva, LISTA nega
         ELEMENT p;                                          //temp ptr
         for (p = l_initiala->primul; p != NULL; p = p->urm) // a loop to search the element in the list
         {
-            if (p->info > 0) // if the element matches
+            if (p->info >= 0) // if the element matches
                 pozitiva = ins_in_fata(pozitiva, p->info);
         }
         for (p = l_initiala->primul; p != NULL; p = p->urm) // a loop to search the element in the list

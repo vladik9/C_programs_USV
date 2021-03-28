@@ -2,9 +2,9 @@
 #include "data.h"
 #include "listai2.h"
 #include "listai2.c"
-//#include <unistd.h>  // for sleap linux
-#include <Windows.h> // for sleap windows
-#define sleep_time 1 //sleap time
+#include <unistd.h> // for sleap linux
+//#include <Windows.h> // for sleap windows
+#define sleep_time 0 //sleap time
 int main()
 {
      int check_condition = 0;
@@ -14,18 +14,19 @@ int main()
      char *string_whit_elements;
      bool flag_inserare = 0;
      int user_element = 0;
-     my_list = newl();        //list initialization
-     lista_pozitiva = newl(); // positiv list initialization
-     lista_negativa = newl(); //negativ list initialization
-     bool save_to_file = false;
+     my_list = newl();          //list initialization
+     lista_pozitiva = newl();   // positiv list initialization
+     lista_negativa = newl();   //negativ list initialization
+     bool save_to_file = false; // save file check condition
+     bool importi_file = false; // import file check condition
      bool list_devided_condion = false;
 
      do
      {
 
-          sleep(2);      // sleep for 3 seconds
-                         // system("clear"); // for linux only
-          system("cls"); //for windows only
+          sleep(2);        // sleep for 3 seconds
+          system("clear"); // for linux only
+          //system("cls"); //for windows only
           printf("\n################################\n");
           printf("Bine ai venit in programul meu!!!\n");
           sleep(sleep_time);
@@ -71,6 +72,22 @@ int main()
 
                break;
           case 2: // to solve this program
+               printf("Cate elemente doresti sa importi in fisier?\n");
+               printf("Introdu 1 pentru un numar exact sau 2 pentru tot fisierul\n");
+               scanf("%d", &user_element);
+               if (user_element == 1)
+               {
+                    printf("Introdu numarul de elemente pe care doresti sa le inserezi: ");
+                    scanf("%d", &user_element);
+               }
+               else if (user_element == 2)
+               {
+                    printf("Ai solictat includerea tuturor valorilor!\n");
+               }
+               else
+               {
+                    printf("Ai introdus o valoare incorecta.\n");
+               }
 
                break;
           case 3:
