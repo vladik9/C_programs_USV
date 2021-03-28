@@ -265,24 +265,56 @@ LISTA delete_X_element(LISTA l, DATA x)
     return l;
 }
 
-bool importListFromFIle(char filename[25])
+LISTA importListFromFIle(LISTA l, char filename[25])
 {
     char buffer[256];
-    char num[50];
-    char space[3];
+    int nr_elements = 0, ret_val;
     FILE *ptr_file;
     ptr_file = fopen(filename, "r");
     if (ptr_file == NULL)
     {
         printf("Can't open file %s\n", filename);
     }
-    
-    fgets(buffer, 255, ptr_file);
 
-    for (size_t i = 0; i < 10; i++)
+    while (nr_elements < 100 &&
+           (ret_val =
+                fscanf(ptr_file, "%d",
+                       &buffer[nr_elements++])) == 1)
+        ;
+
+    if (nr_elements == 256)
     {
-        printf("El: %s\n", buffer[i]);
+        // array full
+        printf("Arr is full!!!\n");
+        return l; //no to match elements in file
     }
+
+    if (ret_val == 0)
+    {
+        // read value not an integer. matching failure
+        //skip the spaces
+    }
+
+    if (ret_val == EOF)
+    {
+        // end of file reached or a read error occurred
+        if (ferror(ptr_file))
+        {
+            // read error occurred in the stream fp
+            // clear it
+            clearerr(ptr_file);
+        }
+    }
+    printf("The nr elements are %d\n", nr_elements);
+    for (size_t i = 0; i < nr_elements - 1; i++) // minus last element whitch is zero
+    {
+
+        l = ins_la_urma(l, buffer[i]);
+    }
+
+    //close the file
+    fclose(ptr_file);
+    return l;
 }
 
 bool saveListToFile(LISTA l)

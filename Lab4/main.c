@@ -33,7 +33,7 @@ int main()
           sleep(sleep_time);
           printf("1 - citeste un numar intreg si - l introduce la inceputul listei.\n");
           sleep(sleep_time);
-          printf("?2 - citeste un fisier text ce contine numere intregi separate prin spatii\nsi le introduce in lista (la sfarsitul listei)\n");
+          printf("2 - citeste un fisier text ce contine numere intregi separate prin spatii\nsi le introduce in lista (la sfarsitul listei)\n");
           sleep(sleep_time);
           printf("3 - afiseaza lista.\n");
           sleep(sleep_time);
@@ -75,8 +75,9 @@ int main()
           case 2: // to solve this program
                printf("Enter the file name: ");
                scanf("%s", &filename);
-               import_file = importListFromFIle(filename);
+               my_list = importListFromFIle(my_list, filename);
                break;
+
           case 3:
 
                string_whit_elements = toStringl(my_list, string_whit_elements);
